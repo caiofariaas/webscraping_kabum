@@ -6,7 +6,7 @@ import pandas as pd  # Para trabalhar com dataframes
 import math  # Para operações matemáticas
 
 # URL do site a ser acessado
-url = 'https://www.kabum.com.br/busca/cadeiras-gamers'
+url = 'https://www.kabum.com.br/espaco-gamer/cadeiras-gamer'
 
 # Configuração do cabeçalho para simular um navegador
 headers = {
@@ -40,7 +40,7 @@ dic_produtos = {'marca': [], 'preco': []}
 # Itera sobre as páginas para coletar informações dos produtos
 for i in range(1, ultima_pagina + 1):
     # Constrói a URL da página atual
-    url_pag = f'https://www.kabum.com.br/busca/cadeiras-gamers?page_number={i}&page_size=20&facet_filters=&sort=most_searched'
+    url_pag = f'https://www.kabum.com.br/espaco-gamer/cadeiras-gamer?page_number={i}&page_size=20&facet_filters=&sort=most_searched'
     site = requests.get(url_pag, headers=headers)
     soup = BeautifulSoup(site.content, 'html.parser')
     produtos = soup.find_all('div', class_=re.compile('productCard'))
